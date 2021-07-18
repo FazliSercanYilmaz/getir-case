@@ -5,15 +5,15 @@ export class ValidationError extends CustomError {
     private constructor(message: string) {
         super(
             message,
-            ErrorConfig.ValidationError.code,
-            ErrorConfig.ValidationError.name
+            ErrorConfig.validationError.code,
+            ErrorConfig.validationError.name
         );
         Object.setPrototypeOf(this, ValidationError.prototype);
     }
 
     static getDefaultError(): CustomError {
         return new ValidationError(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     }
 }

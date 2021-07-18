@@ -1,4 +1,4 @@
-import mongoose, { Connection, Model, Schema } from "mongoose";
+import { Connection, Model, Schema } from "mongoose";
 import { IRecordDocuments } from "../../models/IRecordDocument";
 
 const recordSchema = new Schema<IRecordDocuments>({
@@ -10,6 +10,7 @@ const recordSchema = new Schema<IRecordDocuments>({
         of: Number,
     },
 });
+
 export function RecordModel(conn: Connection): Model<IRecordDocuments> {
     return conn.model("record", recordSchema);
 }

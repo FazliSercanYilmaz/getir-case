@@ -1,4 +1,4 @@
-import { ModelValidate } from "../../src/validators/ModelValidator";
+import { modelValidate } from "../../src/validators/ModelValidator";
 import * as jf from "joiful";
 import { ValidationError } from "../../src/error/ValidationError";
 import { CustomError } from "../../src/error/CustomError";
@@ -22,7 +22,7 @@ class testUserModel {
 }
 const testFunction = (input: testUserModel) => {
     try {
-        return { data: ModelValidate<testUserModel>(input, testUserModel) };
+        return { data: modelValidate<testUserModel>(input, testUserModel) };
     } catch (error) {
         return { error };
     }
@@ -53,10 +53,10 @@ describe("ModelValidator function test", () => {
         const result = testFunction(testInput);
         expect(result).toBeDefined();
         expect(result.error).toBeDefined();
-        expect(result.error?.code).toBe(ErrorConfig.ValidationError.code);
-        expect(result.error?.name).toBe(ErrorConfig.ValidationError.name);
+        expect(result.error?.code).toBe(ErrorConfig.validationError.code);
+        expect(result.error?.name).toBe(ErrorConfig.validationError.name);
         expect(result.error?.message).toBe(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     });
 
@@ -70,10 +70,10 @@ describe("ModelValidator function test", () => {
         expect(result).toBeDefined();
         expect(result.error).toBeDefined();
         expect(result.error).not.toBeUndefined();
-        expect(result.error?.code).toBe(ErrorConfig.ValidationError.code);
-        expect(result.error?.name).toBe(ErrorConfig.ValidationError.name);
+        expect(result.error?.code).toBe(ErrorConfig.validationError.code);
+        expect(result.error?.name).toBe(ErrorConfig.validationError.name);
         expect(result.error?.message).toBe(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     });
 
@@ -87,10 +87,10 @@ describe("ModelValidator function test", () => {
         expect(result).toBeDefined();
         expect(result.error).toBeDefined();
         expect(result.error).not.toBeUndefined();
-        expect(result.error?.code).toBe(ErrorConfig.ValidationError.code);
-        expect(result.error?.name).toBe(ErrorConfig.ValidationError.name);
+        expect(result.error?.code).toBe(ErrorConfig.validationError.code);
+        expect(result.error?.name).toBe(ErrorConfig.validationError.name);
         expect(result.error?.message).toBe(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     });
 
@@ -104,10 +104,10 @@ describe("ModelValidator function test", () => {
         expect(result).toBeDefined();
         expect(result.error).toBeDefined();
         expect(result.error).not.toBeUndefined();
-        expect(result.error?.code).toBe(ErrorConfig.ValidationError.code);
-        expect(result.error?.name).toBe(ErrorConfig.ValidationError.name);
+        expect(result.error?.code).toBe(ErrorConfig.validationError.code);
+        expect(result.error?.name).toBe(ErrorConfig.validationError.name);
         expect(result.error?.message).toBe(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     });
 
@@ -121,10 +121,10 @@ describe("ModelValidator function test", () => {
         expect(result).toBeDefined();
         expect(result.error).toBeDefined();
         expect(result.error).not.toBeUndefined();
-        expect(result.error?.code).toBe(ErrorConfig.ValidationError.code);
-        expect(result.error?.name).toBe(ErrorConfig.ValidationError.name);
+        expect(result.error?.code).toBe(ErrorConfig.validationError.code);
+        expect(result.error?.name).toBe(ErrorConfig.validationError.name);
         expect(result.error?.message).toBe(
-            ErrorConfig.ValidationError.messages.default
+            ErrorConfig.validationError.messages.default
         );
     });
 });

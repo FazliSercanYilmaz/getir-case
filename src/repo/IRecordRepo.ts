@@ -3,7 +3,7 @@ import { CustomError } from "../error/CustomError";
 import { DbError } from "../error/DbError";
 
 export interface IRecordRepo {
-    GetRecordsByDateAndCountFilter(
+    getRecordsByDateAndCountFilter(
         input: IRecordFilteredInput
     ): Promise<IRecordFiltered[]>;
 }

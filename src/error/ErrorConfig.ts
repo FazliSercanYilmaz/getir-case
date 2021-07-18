@@ -1,5 +1,5 @@
 export default {
-    RecordError: {
+    recordError: {
         code: 404,
         name: "Records Error",
         messages: {
@@ -7,12 +7,12 @@ export default {
             recordNotFound: "Records not found",
         },
     },
-    ValidationError: {
+    validationError: {
         code: 500,
         name: "Validation Error",
         messages: { default: "Validation Error" },
     },
-    DbError: {
+    dbError: {
         code: -100,
         name: "Database Error",
         messages: { default: "Database Error" },

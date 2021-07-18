@@ -1,27 +1,78 @@
 swagger: "2.0"
 info:
-  version: 0.0.0
-  title: title
-  description: description
-  termsOfService: terms
+  title: Getir Challange Case Api
+  version: 1.0.0
   contact:
-    name: 
-    url: 
-    email: 
-  license:
-    name: MIT
-    url: http://opensource.org/licenses/MIT
-
-title: Swagger Sample App
-description: This is a sample server Petstore server.
-termsOfService: http://swagger.io/terms/
-contact:
-  name: API Support
-  url: http://www.swagger.io/support
-  email: support@swagger.io
-license:
-  name: Apache 2.0
-  url: http://www.apache.org/licenses/LICENSE-2.0.html
-version: 1.0.1
+    "name": "Fazli Sercan Yılmaz"
+    "email": fazlisercanyilmaz@gmail.com
 paths:
-  
+  "/":
+    post:
+      description: get Records By Date And Count Filter
+      parameters:
+      - in: "body"
+        name: "DateAndCountFilterRequestModel"
+        required: true
+        schema:
+          $ref: "#/definitions/DateAndCountFilterRequestModel"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/DateAndCountFilterResponseModel"
+        "400":
+          description: "Bad post request"
+          schema:
+            $ref: "#/definitions/DateAndCountFilterResponseErrorModel"
+        "500":
+          description: "Database error"
+          schema:
+            $ref: "#/definitions/DateAndCountFilterResponseErrorModel"
+          
+
+definitions:
+  DateAndCountFilterRequestModel:
+    type: "object"
+    properties:
+      startDate:
+        type: "string"
+        format: "date"
+        default: "2016-01-26"
+      endDate:
+        type: "string"
+        format: "date"
+        default: "2018-02-02"
+      minCount:
+        type: "integer"
+        default: 1000
+      maxCount:
+        type: "integer"
+        default: 3000
+  DateAndCountFilterResponseModel:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+      msg:
+        type: "string"
+      records:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            key:
+              type: "string"
+            createdAt:
+              type: "string"
+              format: "date"
+            totalCount:
+              type: "integer"
+  DateAndCountFilterResponseErrorModel:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+      msg:
+        type: "string"
+
+              

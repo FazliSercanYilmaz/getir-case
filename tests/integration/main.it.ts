@@ -1,7 +1,7 @@
 import supertest from "supertest";
 import { mainDbConnection, server, app } from "../../src/index";
 
-describe("API TEST (e2e)", () => {
+describe("API TEST (IT)", () => {
     beforeEach(async () => {});
 
     it("/ (POST) Success", () => {

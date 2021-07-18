@@ -5,17 +5,17 @@ export class RecordError extends CustomError {
     private constructor(message: string) {
         super(
             message,
-            ErrorConfig.RecordError.code,
-            ErrorConfig.RecordError.name
+            ErrorConfig.recordError.code,
+            ErrorConfig.recordError.name
         );
         Object.setPrototypeOf(this, RecordError.prototype);
     }
 
     static getDefaultError(): CustomError {
-        return new RecordError(ErrorConfig.RecordError.messages.default);
+        return new RecordError(ErrorConfig.recordError.messages.default);
     }
 
     static getRecordNotFoundError(): CustomError {
-        return new RecordError(ErrorConfig.RecordError.messages.recordNotFound);
+        return new RecordError(ErrorConfig.recordError.messages.recordNotFound);
     }
 }

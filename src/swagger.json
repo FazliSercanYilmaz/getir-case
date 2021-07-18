@@ -1,0 +1,113 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Getir Challange Case Api",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Fazli Sercan Yılmaz",
+      "email": "fazlisercanyilmaz@gmail.com"
+    }
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "description": "Get Records by date and count filter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "DateAndCountFilterRequestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DateAndCountFilterRequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "$ref": "#/definitions/DateAndCountFilterResponseModel"
+            }
+          },
+          "400": {
+            "description": "Bad post request",
+            "schema": {
+              "$ref": "#/definitions/DateAndCountFilterResponseErrorModel"
+            }
+          },
+          "500": {
+            "description": "Database error",
+            "schema": {
+              "$ref": "#/definitions/DateAndCountFilterResponseErrorModel"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DateAndCountFilterRequestModel": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "default": "2016-01-26"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "default": "2018-02-02"
+        },
+        "minCount": {
+          "type": "integer",
+          "default": 1000
+        },
+        "maxCount": {
+          "type": "integer",
+          "default": 3000
+        }
+      }
+    },
+    "DateAndCountFilterResponseModel": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "totalCount": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DateAndCountFilterResponseErrorModel": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
