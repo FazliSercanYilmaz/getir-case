@@ -77,7 +77,7 @@ app.use(
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDoc)); // for swagger
 
 //Creating http server
-const server = app.listen(expressConfig.port || process.env.PORT, () => {
+const server = app.listen(process.env.PORT || expressConfig.port, () => {
     console.log(`${expressConfig.port} is listening`);
 });
 
