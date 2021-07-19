@@ -24,37 +24,37 @@ npm install
 npm start
 ```
 
-###Test
+### Test
 
--   ####Test All
+-   #### Test All
 
 ```
 npm run test
 ```
 
--   ####Test Unit
+-   #### Test Unit
 
 ```
 npm run test:unit
 ```
 
--   ####Test Integration
+-   #### Test Integration
 
 ```
 npm run test:it
 ```
 
-###Config
+### Config
 
--   ####Express Config
+-   #### Express Config
 
 *   Change expressConfig.ts
 
--   ####Database Config
+-   #### Database Config
 
 *   Change dbConfig.ts
 
--   ####Error Config
+-   #### Error Config
 
 *   Change ErrorConfig.ts
 
