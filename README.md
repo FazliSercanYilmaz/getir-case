@@ -18,7 +18,7 @@ cd getir-case
 npm install
 ```
 
-###Start
+### Start
 
 ```
 npm start
@@ -57,6 +57,12 @@ npm run test:it
 -   #### Error Config
 
 *   Change ErrorConfig.ts
+
+### Api Endpoint
+
+https://sercan-getir-case.herokuapp.com/
+
+https://sercan-getir-case.herokuapp.com/swagger
 
 ## Authors
 
