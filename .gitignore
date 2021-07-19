@@ -107,3 +107,7 @@ dist
 dist/
 
 api/
+
+package-lock.json
+
+.prettierrc
