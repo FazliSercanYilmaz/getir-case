@@ -24,9 +24,14 @@
   },
   "scripts": {
     "start": "tsc && node  dist/src/index.js",
+    "start:build": "tsc",
+    "start:run" :"node dist/src/index.js",
     "test": "npm run test:unit && npm run test:it",
     "test:it": "jest  --config ./tests/integration/jest.config.json",
     "test:unit": "jest --config ./tests/unit/jest.config.json"
+  },
+  "engines": {
+    "node": "v12.19.0"
   },
   "author": "",
   "license": "ISC"
