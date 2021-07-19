@@ -40,6 +40,12 @@
             "schema": {
               "$ref": "#/definitions/DateAndCountFilterResponseErrorModel"
             }
+          },
+          "501": {
+            "description": "Unknown error",
+            "schema": {
+              "$ref": "#/definitions/DateAndCountFilterResponseErrorModel"
+            }
           }
         }
       }

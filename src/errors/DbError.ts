@@ -1,4 +1,4 @@
-import ErrorConfig from "./ErrorConfig";
+import ErrorConfig from "../ErrorConfig";
 
 export class DbError extends Error {
     private constructor(message: string) {

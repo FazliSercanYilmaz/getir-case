@@ -1,8 +1,7 @@
 import { Model } from "mongoose";
 import { IRecordFilteredInput } from "../../dto/IRecordFilteredInput";
-import { DbError } from "../../error/DbError";
-import { RecordError } from "../../error/RecordError";
-import { IRecord } from "../../models/IRecord";
+import { DbError } from "../../errors/DbError";
+import { RecordError } from "../../errors/RecordError";
 import { IRecordDocuments } from "../../models/IRecordDocument";
 import { IRecordRepo } from "../IRecordRepo";
 

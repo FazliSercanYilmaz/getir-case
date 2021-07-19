@@ -1,8 +1,8 @@
 import { modelValidate } from "../../src/validators/ModelValidator";
 import * as jf from "joiful";
-import { ValidationError } from "../../src/error/ValidationError";
-import { CustomError } from "../../src/error/CustomError";
-import ErrorConfig from "../../src/error/ErrorConfig";
+import { ValidationError } from "../../src/errors/ValidationError";
+import { CustomError } from "../../src/errors/CustomError";
+import ErrorConfig from "../../src/ErrorConfig";
 jf.joi.ValidationError;
 class testUserModel {
     constructor(email: string, username: string, password: string) {

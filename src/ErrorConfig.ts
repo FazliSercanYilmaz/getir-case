@@ -17,4 +17,9 @@ export default {
         name: "Database Error",
         messages: { default: "Database Error" },
     },
+    unknownError: {
+        code: -200,
+        name: "Unknown Error",
+        messages: { default: "Unknown Error" },
+    },
 };

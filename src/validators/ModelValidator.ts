@@ -1,6 +1,6 @@
 import * as jf from "joiful";
 import { Constructor } from "joiful/core";
-import { ValidationError } from "../error/ValidationError";
+import { ValidationError } from "../errors/ValidationError";
 export function modelValidate<T>(target: any, sourceClass: Constructor<T>): T {
     //Validation Class
     const result = jf.validateAsClass(target, sourceClass, {

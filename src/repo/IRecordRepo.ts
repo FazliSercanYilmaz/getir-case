@@ -1,6 +1,6 @@
 import { IRecordFilteredInput } from "../dto/IRecordFilteredInput";
-import { CustomError } from "../error/CustomError";
-import { DbError } from "../error/DbError";
+import { CustomError } from "../errors/CustomError";
+import { DbError } from "../errors/DbError";
 
 export interface IRecordRepo {
     getRecordsByDateAndCountFilter(

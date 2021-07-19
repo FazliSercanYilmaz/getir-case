@@ -1,5 +1,5 @@
 import { CustomError } from "./CustomError";
-import ErrorConfig from "./ErrorConfig";
+import ErrorConfig from "../ErrorConfig";
 
 export class RecordError extends CustomError {
     private constructor(message: string) {

@@ -1,19 +1,26 @@
 import "reflect-metadata";
-import express, { NextFunction, request, Request, Response } from "express";
-import { Connection } from "mongoose";
+
+import expressConfig from "./expressConfig";
+import ErrorConfig from "./ErrorConfig";
 import dbConfig from "./dbConfig";
+
 import swaggerUi from "swagger-ui-express";
 import * as swaggerDoc from "./swagger.json";
 
+import express, { NextFunction, Request, Response } from "express";
+import { Connection } from "mongoose";
+
+//DI
+import { DbConnection } from "./repo/record/DbConnection";
 import { IRecordRepo } from "./repo/IRecordRepo";
 import { RecordRepo } from "./repo/record/RecordRepo";
 import { RecordModel } from "./repo/record/RecordModel";
-import { RecordService } from "./service/RecordService";
+import { RecordService } from "./services/RecordService";
 import { RecordController } from "./controllers/RecordController";
-import { CustomError } from "./error/CustomError";
-import { DbConnection } from "./repo/record/DbConnection";
-import { DbError } from "./error/DbError";
-import expressConfig from "./expressConfig";
+
+import { CustomError } from "./errors/CustomError";
+import { DbError } from "./errors/DbError";
+import { ErrorResponse } from "./response/ErrorResponse";
 
 const app = express();
 app.use(express.json());
@@ -36,7 +43,11 @@ app.post("/", async (req: Request, res: Response, next: NextFunction) => {
             req.body
         );
 
-        res.status(200).send(result);
+        res.status(200).send({
+            code: result.code,
+            msg: result.msg,
+            records: result.data,
+        });
     } catch (error) {
         //Catching record controller's errors
         next(error);
@@ -52,24 +63,21 @@ app.use(
     ) => {
         //Sending bad response for defined errors
         if (err instanceof CustomError) {
-            return res.status(400).send({
-                code: err.code,
-                msg: err.message,
-            });
+            return res.status(400).send(new ErrorResponse(err));
         } else if (err instanceof DbError) {
-            return res.status(500).send({
-                code: err.code,
-                msg: err.message,
-            });
+            return res.status(500).send(new ErrorResponse(err));
         } else {
-            throw err;
+            return res.status(501).send({
+                code: ErrorConfig.unknownError.code,
+                msg: ErrorConfig.unknownError.messages.default,
+            });
         }
     }
 );
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDoc)); // for swagger
 
 //Creating http server
-const server = app.listen(expressConfig.port, () => {
+const server = app.listen(expressConfig.port || process.env.PORT, () => {
     console.log(`${expressConfig.port} is listening`);
 });
 

@@ -1,5 +1,5 @@
 import { DateAndCountFilterRequestDto } from "../dto/DateAndCountFilterRequestDto";
-import { RecordService } from "../service/RecordService";
+import { RecordService } from "../services/RecordService";
 import { modelValidate } from "../validators/ModelValidator";
 import { SuccessResponse } from "../response/SuccessResponse";
 
